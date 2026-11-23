@@ -1,0 +1,20 @@
+{
+  "name": "${localWorkspaceFolderBasename}",
+  "build": {
+    "context": "..",
+    "dockerfile": "./Dockerfile",
+    "args": {
+      "DEV_USERNAME": "dev",
+      "DEV_GROUPNAME": "dev",
+      "DEV_UID": "1000",
+      "DEV_GID": "1000"
+    }
+  },
+  "remoteUser": "dev",
+  "runArgs": [
+    "--name=app_container",
+    "--rm",
+  ],
+  "workspaceFolder": "/workspaces/app_container",
+  "workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind,consistency=cached",
+}
